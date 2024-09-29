@@ -2,6 +2,9 @@
 * stdio.h
 * limits.h
 * string.h
+* time.h
+* stdlib.h
+
 
 # Références
 * man random
