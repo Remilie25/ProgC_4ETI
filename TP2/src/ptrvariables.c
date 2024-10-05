@@ -1,6 +1,6 @@
 /* Nom du fichier : ptrvariables.c
    Auteurs : Bourges Vincent, de Pretto Remi
-   Objectif : creer et affiche une variable et un pointeur de chaque type de base.
+   Objectif : creer et afficheR une variable et un pointeur de chaque type de base.
  */
 
 #include <stdio.h>

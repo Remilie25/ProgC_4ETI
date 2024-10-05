@@ -1,6 +1,6 @@
 /* Nom du fichier : fibonacci.c
    Auteurs : Bourges Vincent, de Pretto Remi
-   Objectif : calcule et affiche les termes de la suite de fibonacci jusqu'a l'indice entre par l'utilisateur.
+   Objectif : calculer et afficher les termes de la suite de fibonacci jusqu'a l'indice donne par l'utilisateur.
  */
 
 #include <stdio.h>
@@ -30,7 +30,7 @@ int main(){
     printf("Le terme 1 de la suite de fibonacci est 1.\n");
   }
 
-  //calcul et affichage des termes suivant (jusqu'a intdice > num).
+  //calcul et affichage des termes suivant (jusqu'a indice > num).
   for (;indice <= num; indice++){
     tmp = u_n;
     u_n += u_n_moins_1;

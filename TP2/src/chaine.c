@@ -1,7 +1,7 @@
 /* Nom du fichier : chaine.c
    Auteurs : Bourges Vincent, de Pretto Remi
    Objectif : trois fonctions realisant :
-              - le calcul de longueur d'une chaine de carateres
+        - le calcul de longueur d'une chaine de carateres
 	      - la copie d'une chaine de carateres
 	      - la concatenation de chaine de carateres.
  */
@@ -30,7 +30,7 @@ void string_copy(char* src_ptr, char* dest_ptr, unsigned long dest_len){
     dest_ptr[indice] = src_ptr[indice];
     indice ++;
   }
-  /*Si la boucle s'est arreter, c'est soit qu'elle a lu le caractere '\0' et il faut l'ajouter a la
+  /*Si la boucle s'est arretee, c'est soit qu'elle a lu le caractere '\0' et il faut l'ajouter a la
     destination. Soit qu'elle est arrivee au bout de la chaine destination et il faut ajouter '\0'.*/
   dest_ptr[indice] = '\0';
 }
@@ -54,7 +54,7 @@ int main(){
   string_copy(resultat1, resultat2, sizeof(resultat2) / sizeof(resultat2[0]));
   string_concatenate(chaine_a_concatener_et_tronquer, resultat2, sizeof(resultat2) / sizeof(resultat2[0]));
 
-  printf("Chaine copiee : %s\tet sa longueur : %lu\tchaine concatenee : %s\n",
+  printf("Chaine copiee : %s\tet sa longueur : %lu\nchaine concatenee : %s\n",
 	 resultat1, string_len(resultat1), resultat2);
   return 0;
 }
