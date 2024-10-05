@@ -11,7 +11,7 @@ int main(){
   int nombre = 1;
   int somme = 0;
   for (;nombre < 1001; nombre++){
-    if ( (!(nombre % 5) || !(nombre % 7)) && nombre % 11){
+    if ( (!(nombre % 5) || !(nombre % 7)) && nombre % 11){ // Verification divisibles par 5 et 7 mais pas 11
       somme += nombre;
     } else if (!(nombre & 11)){
       continue;

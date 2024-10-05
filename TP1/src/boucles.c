@@ -2,7 +2,7 @@
    Auteurs : Bourges Vincent, de Pretto Remi
    Objectif : tracer un triangle avec '*' sur le bords et '#' a l'interieur.
               compteur est la hauteur du triangle (max 9).
- */
+*/
 
 #include <stdio.h>
 

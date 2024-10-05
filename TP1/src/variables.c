@@ -1,6 +1,6 @@
 /* Nom du fichier : variables.c
    Auteurs : Bourges Vincent, de Pretto Remi
-   Objectif : creer et affiche une variable de chaque type de base.
+   Objectif : creer et afficher une variable de chaque type de base.
  */
 
 #include <stdio.h>
@@ -20,5 +20,20 @@ int main() {
   long double k = 1E1;
   unsigned char l = 'a';
   char m = 'b';
-  printf(" a = %hu\n b = %hd\n c = %u\n d = %d\n e = %lu\n f = %ld\n g = %llu\n h = %lld\n i = %f\n j = %g\n k = %Lg\n l = %hhu\n m = %c\n", a, b, c, d, e, f, g, h, i, j, k, l, m);
+
+  printf("unsigned short: %hu\n", a);
+  printf("short: %hd\n", b);
+  printf("unsigned int: %u\n", c);
+  printf("int: %d\n", d);
+  printf("unsigned long int: %lu\n", e);
+  printf("long int: %ld\n", f);
+  printf("unsigned long long int: %llu\n", g);
+  printf("long long int: %lld\n", h);
+  printf("float: %f\n", i);
+  printf("double: %g\n", j);
+  printf("long double: %Lg\n", k);  
+  printf("unsigned char: %hhu\n", l);
+  printf("char: %c\n", m);
+
+  return 0;    
 }
