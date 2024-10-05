@@ -15,5 +15,5 @@
 * Vincent : 6/10
 
 # Commentaires
-* Nous avons utiliser certaines fonctions plusieurs fois donc nous les avons isolees dans des fichiers a part que nous importons.
+* Nous avons utilise certaines fonctions plusieurs fois donc nous les avons isolees dans des fichiers a part que nous importons.
  
