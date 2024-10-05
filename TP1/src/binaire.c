@@ -7,7 +7,7 @@
 
 
 int main(){
-  int nombre = 158;
+  int nombre = 65534;
 
   //version algorithme d'Euclid:
   
@@ -15,7 +15,7 @@ int main(){
   char bin_tab[sizeof(int) * 8]; //stocke les bits du nombre dans l'ordre LSB.
   short int index = 0; //pointe vers le prochain emplacement a remplir du bin_tab.
 
-  //boucle de l'algorithme d'euclid
+  //boucle de l'algorithme d'Euclide
   while (quotient){
     if (quotient % 2){
       bin_tab[index] = '1';

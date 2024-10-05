@@ -1,6 +1,6 @@
 /* Nom du fichier : pyramide.c
    Auteurs : Bourges Vincent, de Pretto Remi
-   Objectif : affichage d'une pyramide. Chaque ligne croit de 1 a 
+   Objectif : affichage d'une pyramide. Chaque ligne croit de 1 au nombre de la ligne puis decroit
  */
 
 #include <stdio.h>
