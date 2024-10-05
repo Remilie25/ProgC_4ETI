@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include "fonction_affichage.h"
 
 float float_from_long_bytes(long k){
   //Cette fonction renvoie le float ayant les memes premiers octects que l'entier k.
@@ -18,23 +19,6 @@ float float_from_long_bytes(long k){
   return tmp.real_number;
 }
 
-void print_int_tab(int* tab_ptr, short len){
-  //Cette fonction affiche un tableau d'entier.
-  short indice = 1;
-  printf("%d", *tab_ptr);
-  for(; indice < len; indice++){
-    printf(", %d", *(tab_ptr + indice));
-  }
-}
-  
-void print_float_tab(float* tab_ptr, short len){
-  //Cette fonction affiche un tableau de float.
-  short indice = 1;
-  printf("%f", *tab_ptr);
-  for(; indice < len; indice++){
-    printf(", %f", *(tab_ptr + indice));
-  }
-}
 
 int main(){
   //Initialisation du PRNG
