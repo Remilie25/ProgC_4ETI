@@ -9,6 +9,7 @@
 
 # Références
 * https://fr.wikipedia.org/wiki/Tri_rapide
+* https://fr.wikipedia.org/wiki/Recherche_dichotomique
 
 # Difficulté
 * Remi : 3/10

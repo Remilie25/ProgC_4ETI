@@ -46,8 +46,9 @@ void string_concatenate(char* src_ptr, char* dest_ptr, unsigned long dest_len){
 
 
 int main(){
+  // la partie "En trop !" n'est pas concaténé car elle est plus grande que la taille de la chaine 2, a la fin la 2e chaine est pleine
   char chaine_a_copier[20] = "Hello";
-  char chaine_a_concatener_et_tronquer[20] = " world ! En trop !";
+  char chaine_a_concatener_et_tronquer[20] = " world ! En trop !"; 
   char resultat1[14];
   string_copy(chaine_a_copier, resultat1, sizeof(resultat1) / sizeof(resultat1[0]));
   char resultat2[14];
