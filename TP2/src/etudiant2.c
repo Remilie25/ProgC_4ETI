@@ -61,6 +61,7 @@ int main(){
   strcpy(database[4].adresse, "Roquebrune Cap Martin");
 
   //Notes de progC et syst_exploit
+  //Notes > 20 signifie pas de notes
   database[0].notes.progC[0] = 1.;
   database[0].notes.progC[1] = 2.;
   database[0].notes.progC[2] = 3.;
@@ -109,7 +110,7 @@ int main(){
   database[4].notes.syst_exploit[0] = 1.;
   database[4].notes.syst_exploit[1] = 2.;
   database[4].notes.syst_exploit[2] = 3.;
-  database[4].notes.syst_exploit[3] = 21.;
+  database[4].notes.syst_exploit[3] = 8.;
   database[4].notes.syst_exploit[4] = 21.;
 
   //affichage

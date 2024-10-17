@@ -29,7 +29,7 @@ int main() {
   unsigned char l = 'a';
   char m = 'b';
 
-  //Affichage. Pour mon ordinateur et mon os, j'ai obtenu little endian comme annoce en cours.
+  //Affichage. Pour mon ordinateur et mon os, j'ai obtenu little endian comme annonce en cours.
   printf("Octects de unsigned short :\n");
   print_byte(&a, sizeof(a));
 
