@@ -18,6 +18,7 @@
 #include <unistd.h>
 
 #include "serveur.h"
+#include "operator.h"
 
 int socketfd; // Déclaration globale de socketfd
 
@@ -50,17 +51,51 @@ int renvoie_message(int client_socket_fd, char *data)
 int recois_envoie_message(int client_socket_fd, char *data)
 {
   printf("Message reçu: %s\n", data);
-  char code[10];
-  if (sscanf(data, "%9s:", code) == 1) // Assurez-vous que le format est correct
-  {
-    if (strcmp(code, "message:") == 0)
-    {
-      return renvoie_message(client_socket_fd, data);
-    }
-  }
 
-  return (EXIT_SUCCESS);
+  strncpy(data, "message: ", 10); //Initialisation avec l'etiquette "message: "
+
+  // Demande à l'utilisateur d'entrer un message
+  char message[1024];
+  printf("Votre message (max 1000 caractères): ");
+  fgets(message, sizeof(message), stdin);
+    
+  // Construit le message
+  strcat(data, message);
+
+  return renvoie_message(client_socket_fd, data);
 }
+
+/**
+ * Cette fonction lit les données envoyées par le client,
+ * et renvoie le resultat de l'operation en réponse.
+ * @param socketfd : Le descripteur de socket du serveur.
+ * @param data : Le calcul demande.
+ * @return EXIT_SUCCESS en cas de succès, EXIT_FAILURE en cas d'erreur.
+ */
+int recois_numeros_calcule(int client_socket_fd, char *data)
+{
+  printf("Calcule reçu: %s\n", data);
+
+  char resultat[1024] = "calcule: "; //stocke le resultat de l'operation avec l'etiquette "calcule: "
+  char* mot = strtok(data, " "); // stocke l'etiquette puis num2 apres
+  char* op = strtok(NULL, " "); //Stocke l'operateur.
+  int num1;
+  int num2;
+      
+  sscanf(strtok(NULL, " "), "%d", &num1); //Recupere num1
+  mot = strtok(NULL, " "); //Recupere num2
+  if (mot){
+    sscanf(mot, "%d", &num2);
+  }
+  //Calcule de l'operation demandee
+  faire_operation(&num1, op, &num2);
+
+  snprintf(resultat + 9, sizeof(resultat), "%d", num1);
+      
+  return renvoie_message(client_socket_fd, resultat);
+}
+
+
 
 /**
  * Gestionnaire de signal pour Ctrl+C (SIGINT).
@@ -78,6 +113,8 @@ void gestionnaire_ctrl_c(int signal)
 
   exit(0); // Quitter proprement le programme.
 }
+
+
 
 /**
  * Gère la communication avec un client spécifique.
@@ -113,8 +150,22 @@ void gerer_client(int client_socket_fd)
       close(client_socket_fd);
       break; // Sortir de la boucle de communication avec ce client
     }
-
-    recois_envoie_message(client_socket_fd, data);
+    char etiquette[10];
+    if (sscanf(data, "%9s:", etiquette) == 1){
+      if (!strncmp(etiquette, "message",7)){
+	recois_envoie_message(client_socket_fd, data);
+      }
+      else if (!strncmp(etiquette, "calcule",7)){
+	recois_numeros_calcule(client_socket_fd, data);
+      }
+      else{
+	printf("L'etiquette %s n'a pas de correspondace.\n", etiquette);
+	recois_envoie_message(client_socket_fd, "La commade saisie n'a pas de correspondace dans notre serveur.\n");
+      }
+    }
+    else{
+      printf("sscanf failed\n");
+    }
   }
 }
 
