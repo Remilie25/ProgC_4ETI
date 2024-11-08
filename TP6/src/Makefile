@@ -1,5 +1,9 @@
-COBJS ?= client.o bmp.o couleur.o
-SOBJS ?= serveur.o 
+CC ?= gcc
+
+CFLAGS = -Wall -Wextra -ggdb3
+
+COBJS ?= client.o bmp.o couleur.o cJSON.o
+SOBJS ?= serveur.o operator.o cJSON.o
 
 .SUFFIXES: .c .o
 
@@ -9,11 +13,11 @@ CLIENT = client
 all: $(SERVER) $(CLIENT)
 
 $(SERVER): $(SOBJS)
-	gcc -o $(SERVER) $(SOBJS) -lm
+	$(CC) $(CFLAGS) -o $(SERVER) $(SOBJS) -lm
 
 $(CLIENT): $(COBJS)
-	gcc -o $(CLIENT) $(COBJS)
+	$(CC) $(CFLAGS) -o $(CLIENT) $(COBJS)
 
-.c.o: 
-	gcc -Wall -Werror -ggdb3 -c $*.c
+.c.o:
+	$(CC) $(CFLAGS) -c $*.c
 
